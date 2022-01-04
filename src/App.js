@@ -12,7 +12,7 @@ function App() {
       <Header text="Hello"/>
       <FeedbackList feedback={feedback}/>
     </>
-  );
+  )
 }
 
 export default App;
