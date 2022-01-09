@@ -32,6 +32,9 @@ function FeedbackForm() {
     } else if (text !== '' && text.trim().length <= 10) {
       setBtnDisabled(true);
       setMessage('Please enter at least 10 characters');
+    } else if (feedbackEdit.edit === true) {
+      setMessage('Editing your feedback...');
+      setBtnDisabled(false);
     } else {
       setBtnDisabled(false);
       setMessage(null);
@@ -48,6 +51,7 @@ function FeedbackForm() {
       }
       if (feedbackEdit.edit === true) {
         updateFeedback(feedbackEdit.item.id, newFeedback);
+        setMessage('Updated your feedback');
       } else {
         addFeedback(newFeedback);
         setText('');
