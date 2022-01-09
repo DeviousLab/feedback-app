@@ -21,6 +21,11 @@ export const FeedbackProvider = ({ children }) => {
       text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae.',
     },]);
 
+  const [feedbackEdit, setFeedbackEdit] = useState({
+    item: {},
+    edit: false
+  });
+
   const deleteFeedback = (id) => {
     if (window.confirm("Are you sure you want to delete this feedback?")) {
       setFeedback(feedback.filter((feedback) => feedback.id !== id));
@@ -32,11 +37,19 @@ export const FeedbackProvider = ({ children }) => {
     setFeedback([newFeedback, ...feedback]);
   };
 
+  const editFeedback = (item) => {
+    setFeedbackEdit({
+      item,
+      edit: true
+    });
+  };
+
   return (
     <FeedbackContext.Provider value={{
       feedback,
       deleteFeedback,
-      addFeedback
+      addFeedback,
+      editFeedback
     }}>
       {children}
     </FeedbackContext.Provider>
