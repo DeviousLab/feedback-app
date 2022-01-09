@@ -51,7 +51,7 @@ function FeedbackForm() {
       }
       if (feedbackEdit.edit === true) {
         updateFeedback(feedbackEdit.item.id, newFeedback);
-        setMessage('Updated your feedback');
+        setMessage('Updated your feedback!');
       } else {
         addFeedback(newFeedback);
         setText('');
